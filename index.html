@@ -509,6 +509,78 @@ draw();
 <script>
 const ITEMS=[
 {
+"id": "hangul-chukchuk",
+"tools": [
+"openai"
+],
+"type": "릴스",
+"date": "2026-10-15",
+"aud": [
+"공무원",
+"교사",
+"직장인"
+],
+"sit": [
+"보고서"
+],
+"tags": [
+"한글 척척",
+"결과보고서",
+"한글 양식",
+"무료 사이트",
+"무료 가능"
+],
+"thumb": "img/card/hangul-chukchuk.jpg",
+"go": [
+"https://jera0520.github.io/hangul-chukchuk/",
+"한글 척척 열기 → jera0520.github.io/hangul-chukchuk"
+],
+"title": "결과보고서, 직접 안 썼어요. 쓰던 한글 양식 그대로 채워 주는 「한글 척척」",
+"line": "법령 서식을 올리고 미리 적어 둔 메모 9줄과 사진 4장을 넣었더니, 한글 파일을 받기까지 3분 24초 걸렸어요",
+"summary": "한글 척척은 쓰던 한글 양식(.hwpx·.hwp)을 올리고 메모와 사진을 넣으면, AI에 붙여 넣을 글을 만들어 주는 무료 사이트예요. 그 글을 ChatGPT 같은 AI에 붙여 넣고 답을 다시 붙이면, 양식 칸에 그대로 채운 한글 파일을 받습니다(.hwpx, 옛 형식 .hwp도 가능). 설치·가입이 없고 한글 프로그램이 없어도 됩니다(윈도우·맥). 한글 파일과 사진은 내 컴퓨터 안에서만 만들어지고, AI에는 이름·연락처를 가린 글만 갑니다.",
+"who": "해마다 결과보고서·실적보고서를 한글 양식으로 내는 공무원, 선생님, 사업 담당자",
+"gain": "쓰던 양식 그대로 채운 한글 파일. 메모에 없어 비워 둔 곳은 「채울 곳」으로 모아 알려 줘요",
+"free": true,
+"steps": [
+"한글 척척(jera0520.github.io/hangul-chukchuk)을 열고 쓰던 한글 양식(.hwpx·.hwp)을 올립니다. 양식이 없으면 「기본 보고서 틀로 시작하기」를 누릅니다.",
+"「무엇을 쓸까요」에 메모를 적고 사진을 넣습니다. 사진마다 한 줄 설명을 적어 두면 붙임 쪽에 같이 들어가요.",
+"「AI에게 쓰게 하기」를 누르면 뜨는 창에서 「글 복사」를 누르고, ChatGPT 같은 AI의 새 대화에 붙여 넣어 보냅니다.",
+"AI 답을 복사해 창에 붙여 넣고 「AI 답 넣기」를 누르면 채운 결과가 나옵니다.",
+"「한글 파일 받기」로 내려받고, 「채울 곳」에 모아 준 빈칸을 직접 채웁니다."
+],
+"prompts": [],
+"faq": [
+[
+"기관 문서를 AI에 넣어도 되나요?",
+"기관·학교마다 보안 규정이 다릅니다. 규정을 먼저 확인하세요. 한글 척척은 이름·학번·전화번호처럼 보이는 말을 [이름1]처럼 바꾼 글만 AI로 보내고, 받은 파일에서 원래대로 되돌립니다. 사업명·금액 같은 내용은 그대로 가요."
+],
+[
+"한글 프로그램이 없어도 되나요?",
+"네. 한글 파일은 브라우저 안에서 읽고 만듭니다. 받은 파일을 열어 볼 때만 한글이나 한컴오피스 뷰어가 있으면 됩니다."
+],
+[
+"무료 ChatGPT로도 되나요?",
+"영상 속 시연은 ChatGPT Plus로 했고, 답이 나오기까지 37초 걸렸어요. 무료 계정과 다른 AI는 아직 직접 시험하지 않았습니다."
+]
+],
+"gallery": [
+[
+"img/work/hangul_p2.jpg",
+"서식 2쪽: 메모 내용으로 채워진 사업개요(메모에 없던 교부 결정일은 빈칸으로 남음)"
+],
+[
+"img/work/hangul_photos.jpg",
+"붙임: 사진 4장과 사진마다 적은 한 줄 설명(사진은 AI로 만든 예시)"
+],
+[
+"img/work/hangul_viewer.jpg",
+"받은 한글 파일을 윈도우 한컴오피스 뷰어로 연 화면"
+]
+],
+"note": "영상 속 보고서는 예시 행사로 만든 시연용이고(실존 기관·사업 아님), 사진은 AI로 만들었어요. 3분 24초는 미리 적어 둔 메모를 붙여 넣은 시연 기록입니다. 숫자·문구·사진은 마지막에 반드시 사람이 확인하세요. 한컴오피스 한글은 ㈜한글과컴퓨터의 제품이며, 한글 척척은 한글과컴퓨터와 관계가 없습니다.",
+"src": ""
+},
+{
 "id": "edits-carousel",
 "tools": [],
 "type": "무료 가이드",
@@ -1168,6 +1240,7 @@ function openDetail(id){
   $("#sheet").innerHTML=`<button class="close" type="button" aria-label="닫기" data-close>×</button>
   <div class="badges">${badges(i)}</div>
   <h2 id="dTitle">${esc(i.title)}</h2><div class="tools">${(i.tools||[]).map(t=>`<span>${svg(t)}${NAMES[t]}</span>`).join("")}${(i.tools||[]).length?`<span style="border:0;background:none;color:var(--g500);font-weight:700">${(i.tools||[]).length>1?"어느 것이든 됩니다":"로 만들었습니다"}</span>`:""}</div><p class="sum">${esc(i.summary)}</p>
+  ${i.go?`<p class="iglink"><a href="${i.go[0]}" target="_blank" rel="noopener">${esc(i.go[1])}</a></p>`:""}
   ${i.gallery?`<h4>실제로 나온 결과</h4><div class="gal">${i.gallery.map(([s,c])=>`<figure><img src="${s}" alt="${esc(c)}" loading="lazy"><figcaption>${esc(c)}</figcaption></figure>`).join("")}</div>`:""}
   ${i.ig?`<p class="iglink"><a href="${i.ig}" target="_blank" rel="noopener">▶ 인스타에서 영상 보기</a></p>`:""}
   <div class="who"><div><b>누구에게</b>${esc(i.who)}</div><div><b>무엇이 좋아지나</b>${esc(i.gain)}</div></div>
