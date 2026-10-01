@@ -7,7 +7,7 @@
 <meta name="description" content="메뉴 사진 한 장으로 포스터 만들기, 리뷰 답글 문장, 손님 문의 답장 초안까지. 사장님·직장인·어르신이 바로 따라 하는 AI 자료를 전부 공개합니다.">
 <meta property="og:title" content="AI한술 — 복사해서 바로 쓰는 AI 자료실">
 <meta property="og:description" content="AI, 어렵게 말고 한 술씩. 부탁 문장과 결과물을 전부 공개합니다.">
-<meta property="og:image" content="img/thumb/poster_v3.jpg">
+<meta property="og:image" content="img/thumb/poster_v4.jpg">
 <link rel="icon" href="img/favicon.png">
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
@@ -57,6 +57,8 @@ main{max-width:1220px;margin:0 auto;padding:12px 32px 80px}
 .bd.new{background:var(--red);color:#fff}.bd.free{background:#E3F4EA;color:var(--green)}.bd.copy{background:var(--brass-100);color:var(--brass-deep)}
 .card h3{margin:0;font-size:20px;line-height:1.38;font-weight:800;letter-spacing:-.02em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .meta{font-size:13.5px;color:var(--g500);font-weight:600}
+.card .line{margin:0;font-size:15px;color:var(--g500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card h3{font-size:22px}
 .empty{padding:40px 20px;text-align:center;color:var(--g500);border:1px dashed var(--border);border-radius:18px;display:none}
 .empty img{width:80px;margin:0 auto 10px}
 /* panels */
@@ -234,8 +236,9 @@ const ITEMS=[
 "무료 가능",
 "인스타"
 ],
-"thumb": "img/thumb/poster_v3.jpg",
-"title": "메뉴 사진 한 장이 포스터 6장으로, 글자까지 정확하게 (부탁 문장 복붙)",
+"thumb": "img/thumb/poster_v4.jpg",
+"title": "메뉴 포스터, 사진 1장이면 6장 나옴",
+"line": "평범한 비빔밥 사진 한 장 + 부탁 문장 하나로 포스터·인스타 알림·메뉴판까지",
 "summary": "평범한 비빔밥 사진 한 장을 ChatGPT에 올리고 부탁 문장 하나를 붙여넣었더니, 고급 식당 광고·빨간 포스터·벽 포스터·인스타 알림·메뉴판까지 나왔습니다.",
 "who": "메뉴판·가게 홍보물을 직접 만드는 사장님",
 "gain": "메뉴 사진 한 장으로 포스터·인스타 알림·메뉴판까지",
@@ -332,8 +335,9 @@ const ITEMS=[
 "반복 문의",
 "무료 가능"
 ],
-"thumb": "img/thumb/review_v3.jpg",
-"title": "사장님 리뷰 답글, 복사해서 쓰는 문장 5개 (아쉬운 리뷰용 포함)",
+"thumb": "img/thumb/review_v4.jpg",
+"title": "리뷰 답글, 아직 손으로 쓰세요?",
+"line": "칭찬·아쉬운 리뷰·AI 티 빼기까지 복사해서 쓰는 문장 5개",
 "summary": "칭찬 리뷰, 아쉬운 리뷰, AI 티 빼기, 반복 문의, 일주일 리뷰 정리까지 그대로 붙여넣으면 됩니다.",
 "who": "리뷰·문의에 매번 직접 답하는 사장님",
 "gain": "답글 초안은 AI가, 확인하고 올리는 건 사장님",
@@ -395,8 +399,9 @@ const ITEMS=[
 "프롬프트",
 "무료 가능"
 ],
-"thumb": "img/thumb/inquiry_v3.jpg",
-"title": "손님 문의에 또 같은 답 쓰고 계세요? 답장 초안은 AI에게",
+"thumb": "img/thumb/inquiry_v4.jpg",
+"title": "\"주차 돼요?\" 오늘 몇 번째예요?",
+"line": "가게 정보 한 번 적어 두면 같은 질문 답장 초안은 AI가",
 "summary": "가격·위치·주차·시간처럼 같은 질문에 매번 처음부터 답하고 있다면, 가게 정보를 한 번만 적어 두세요.",
 "who": "카톡·인스타 메시지로 같은 질문을 계속 받는 사장님",
 "gain": "가게 정보 한 번 + 문의 붙여넣기 = 답장 초안",
@@ -483,7 +488,7 @@ function badges(i){
 }
 function render(){
   const list=ITEMS.filter(match).sort((a,b)=>b.date.localeCompare(a.date));
-  $("#grid").innerHTML=list.map(i=>`<button class="card" type="button" data-id="${i.id}" aria-label="${esc(i.title)} 자세히 보기"><div class="th"><img src="${i.thumb}" alt="" width="640" height="360"${list.indexOf(i)>2?' loading="lazy"':''}></div><div class="cb"><div class="badges">${badges(i)}</div><h3>${esc(i.title)}</h3><div class="meta">${i.aud.join("·")} · ${i.type} · ${dot(i.date)}</div></div></button>`).join("");
+  $("#grid").innerHTML=list.map(i=>`<button class="card" type="button" data-id="${i.id}" aria-label="${esc(i.title)} 자세히 보기"><div class="th"><img src="${i.thumb}" alt="" width="640" height="360"${list.indexOf(i)>2?' loading="lazy"':''}></div><div class="cb"><div class="badges">${badges(i)}</div><h3>${esc(i.title)}</h3><p class="line">${esc(i.line||"")}</p><div class="meta">${i.aud.join("·")} · ${i.type} · ${dot(i.date)}</div></div></button>`).join("");
   const filtered=state.q||state.f!=="전체";
   $("#count").innerHTML=filtered?`찾은 자료 <b>${list.length}</b>개`:`새로 올린 순 · 전체 <b>${list.length}</b>개`;
   $("#empty").style.display=list.length?"none":"block";
