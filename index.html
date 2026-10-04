@@ -159,7 +159,7 @@ footer{border-top:1px solid var(--border);background:var(--tint)}
     <a class="ib" href="https://www.instagram.com/ai.hansul/" target="_blank" rel="noopener" aria-label="인스타그램 @ai.hansul"><i data-ic="instagram"></i></a>
     <a class="ib" href="https://www.threads.com/@ai.hansul" target="_blank" rel="noopener" aria-label="스레드 @ai.hansul"><i data-ic="threads"></i></a>
     <div class="menu"><button class="ib" id="menuBtn" type="button" aria-label="메뉴 열기" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <div class="dd" id="dd" hidden><button data-tab="vault">📚 자료실</button><button data-tab="free">🎁 무료 양식 세팅</button><button data-tab="start">🌱 처음이라면</button><button data-tab="words">📖 말사전</button><button data-tab="log">🛠 빌드로그</button><button data-tab="about">🙋 소개</button></div></div>
+      <div class="dd" id="dd" hidden><button data-tab="vault">📚 자료실</button><button data-tab="maker">✍️ 지시문 만들기</button><button data-tab="free">🎁 무료 양식 세팅</button><button data-tab="start">🌱 처음이라면</button><button data-tab="words">📖 말사전</button><button data-tab="log">🛠 빌드로그</button><button data-tab="about">🙋 소개</button></div></div>
   </div>
 </div></header>
 
@@ -167,6 +167,7 @@ footer{border-top:1px solid var(--border);background:var(--tint)}
   <div class="bar">
     <p class="val">사장님·직장인이 바로 따라 하는 AI 자료. 복사해서 쓰는 문장까지 <b>전부 공개</b>해요.</p>
     <p class="val" style="margin-top:6px"><a href="#free" data-tab="free" style="font-weight:800;text-decoration:underline">🎁 한글 보고서 양식 무료 세팅, 처음 두 분 신청 받아요 →</a></p>
+    <p class="val" style="margin-top:6px"><a href="#maker" data-tab="maker" style="font-weight:800;text-decoration:underline">✍️ 빈칸만 채우면 AI 지시문 완성 — 문의 답장·포스터·회의록·보고서 →</a></p>
     <div class="chips" id="chips" role="group" aria-label="자료 거르기"></div>
     <p class="count" id="count" aria-live="polite"></p>
   </div>
@@ -193,6 +194,203 @@ footer{border-top:1px solid var(--border);background:var(--tint)}
   <h2 class="ph2">처음 보면 막히는 말, 쉬운 말로</h2>
   <p class="lead">AI 이야기를 듣다 막히는 낱말을 중학생도 바로 알 수 있게 바꿔 두었습니다.</p>
   <div class="words" id="words"></div>
+</main></section>
+
+<section class="panel" id="panel-maker"><main>
+<style>
+#panel-maker .mk-top{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:0 0 18px}
+#panel-maker .mk-safe{display:flex;gap:10px;align-items:flex-start;background:#E3F4EA;border-radius:14px;padding:14px 18px;margin:0 0 22px;font-size:16px;color:#174F31}
+#panel-maker .mk-safe b{color:#0E3B23}
+#panel-maker .mk-flow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding:0;list-style:none}
+#panel-maker .mk-flow li{background:var(--tint);border-radius:999px;padding:6px 14px;font-size:15px;font-weight:800;color:var(--g700)}
+#panel-maker .mk-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 24px}
+#panel-maker .mk-tab{border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:16px;padding:14px 10px;font-size:18px;font-weight:900;letter-spacing:-.02em;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.35;text-align:center;box-shadow:0 10px 22px -18px rgba(27,26,23,.5)}
+#panel-maker .mk-tab span{font-size:26px}
+#panel-maker .mk-tab small{font-size:13.5px;font-weight:700;color:var(--g500)}
+#panel-maker .mk-tab[aria-pressed="true"]{background:var(--ink);color:#fff}
+#panel-maker .mk-tab[aria-pressed="true"] small{color:var(--brass-soft)}
+#panel-maker .mk-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+#panel-maker .mk-form{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px}
+#panel-maker .mk-form h3{font-size:22px;font-weight:900;margin:0 0 4px;letter-spacing:-.02em}
+#panel-maker .mk-desc{margin:0 0 14px;color:var(--g700);font-size:16px}
+#panel-maker .mk-acts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+#panel-maker .mk-btn{border:1.5px solid var(--ink);background:#fff;color:var(--ink);font-weight:800;font-size:16px;padding:10px 16px;border-radius:12px;cursor:pointer;min-height:46px}
+#panel-maker .mk-btn.ex{background:var(--brass-soft);border-color:var(--brass)}
+#panel-maker .mk-f{margin:0 0 16px}
+#panel-maker .mk-f>label,#panel-maker .mk-f>.lb{display:block;font-size:17px;font-weight:800;margin:0 0 6px}
+#panel-maker .mk-f .opt{font-size:13.5px;font-weight:700;color:var(--g500);margin-left:6px}
+#panel-maker .mk-f .need{font-size:13.5px;font-weight:800;color:var(--red);margin-left:6px}
+#panel-maker .mk-f .hint{display:block;font-size:14px;color:var(--g500);font-weight:600;margin:4px 0 0}
+#panel-maker input[type=text],#panel-maker textarea,#panel-maker select{width:100%;border:2px solid var(--border);border-radius:12px;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;padding:11px 14px;outline:0;overflow-wrap:anywhere}
+#panel-maker input[type=text],#panel-maker select{min-height:52px}
+#panel-maker textarea{min-height:120px;resize:vertical}
+#panel-maker textarea.big{min-height:200px}
+#panel-maker input:focus,#panel-maker textarea:focus,#panel-maker select:focus{border-color:var(--ink);background:#fff}
+#panel-maker ::placeholder{color:var(--g400)}
+#panel-maker .mk-pick{display:grid;gap:8px}
+#panel-maker .mk-pick label{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--border);border-radius:12px;padding:10px 12px;font-size:16px;font-weight:600;cursor:pointer;background:var(--bg)}
+#panel-maker .mk-pick input{width:22px;height:22px;margin:2px 0 0;flex:none;accent-color:var(--ink)}
+#panel-maker .mk-pick label:has(input:checked){border-color:var(--ink);background:#fff}
+#panel-maker .mk-chk{display:flex;gap:10px;align-items:center;font-size:17px;font-weight:700;cursor:pointer}
+#panel-maker .mk-chk input{width:24px;height:24px;accent-color:var(--ink);flex:none}
+#panel-maker .mk-out{position:sticky;top:92px}
+#panel-maker .mk-out .prompt{margin:0 0 10px}
+#panel-maker .mk-out pre{overflow-wrap:anywhere}
+#panel-maker .mk-left{font-size:15px;font-weight:800;color:var(--brass-deep);margin:0 0 12px;min-height:1.6em}
+#panel-maker .mk-left.ok{color:var(--green)}
+#panel-maker .mk-copy{width:100%;border:0;background:var(--ink);color:#fff;font-size:19px;font-weight:900;border-radius:14px;min-height:58px;cursor:pointer;margin:0 0 10px}
+#panel-maker .mk-ai{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 6px}
+#panel-maker .mk-ai a{display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--ink);border-radius:14px;min-height:54px;font-size:17px;font-weight:800;text-decoration:none;background:#fff}
+#panel-maker .mk-ai a i,#panel-maker .mk-ai a svg{width:20px;height:20px;display:inline-flex}
+#panel-maker .mk-ai.one{grid-template-columns:1fr}
+#panel-maker .mk-how{font-size:15px;color:var(--g700);margin:6px 0 0}
+#panel-maker .mk-extra{margin-top:14px}
+#panel-maker .mk-extra .prompt .pp{background:var(--g700)}
+#panel-maker .mk-out pre{max-height:60vh;overflow:auto}
+@media (min-width:761px){#panel-maker .mk-out pre{max-height:52vh}}
+@media (max-width:900px){#panel-maker .mk-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+ #panel-maker .mk-wrap{grid-template-columns:minmax(0,1fr);gap:20px}
+ #panel-maker .mk-out{position:static}
+ #panel-maker .mk-form{padding:18px 16px}
+ #panel-maker .mk-tab{font-size:17px;padding:12px 8px}
+ #panel-maker .mk-tab small{display:none}
+ #panel-maker .mk-safe{padding:12px 14px;font-size:15px}
+ #panel-maker .mk-flow{gap:6px}
+ #panel-maker .mk-flow li{font-size:13.5px;padding:4px 10px}
+}
+</style>
+  <h2 class="ph2">빈칸만 채우면, AI에게 보낼 지시문 완성</h2>
+  <p class="lead">자료실에서 실제로 돌려 보고 검증한 지시문에 우리 가게·내 일 내용만 넣어 드려요. 다 채우면 <b>복사</b> 눌러 ChatGPT나 Claude에 붙여넣기만 하면 됩니다.</p>
+  <div class="mk-safe" role="note"><span aria-hidden="true">🔒</span><span><b>적은 내용은 이 화면 밖으로 나가지 않아요.</b> 어디에도 보내거나 저장하지 않고, 화면을 닫으면 사라집니다. 지시문을 AI 채팅창에 붙여넣을 때 처음으로 그 AI 회사에 전달되니, 손님 이름·전화번호 같은 개인정보는 빼고 적어 주세요.</span></div>
+  <ol class="mk-flow" aria-label="쓰는 순서"><li>① 무엇을 할지 고르기</li><li>② 빈칸 채우기</li><li>③ 복사</li><li>④ ChatGPT·Claude에 붙여넣기</li><li>⑤ 답 확인하고 고치기</li></ol>
+  <div class="mk-tabs" id="mkTabs" role="group" aria-label="만들 지시문 고르기"></div>
+  <div class="mk-wrap">
+    <form class="mk-form" id="mkForm" autocomplete="off" onsubmit="return false"></form>
+    <div class="mk-out">
+      <div class="prompt"><div class="pp"><span id="mkLabel">완성된 지시문</span><button class="copy" type="button" id="mkCopyTop">복사</button></div><pre id="mkText"></pre></div>
+      <p class="mk-left" id="mkLeft" aria-live="polite"></p>
+      <button class="mk-copy" type="button" id="mkCopy">📋 지시문 복사하기</button>
+      <div class="mk-ai" id="mkAi"></div>
+      <p class="mk-how" id="mkHow"></p>
+      <div class="mk-extra" id="mkExtra"></div>
+      <div class="note"><b>AI 답은 초안입니다.</b> 숫자·이름·날짜는 보내거나 내기 전에 꼭 사람이 한 번 확인하세요. AI는 모르는 것도 그럴듯하게 지어낼 때가 있습니다.</div>
+    </div>
+  </div>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+const P=document.getElementById("panel-maker");if(!P)return;
+const q=s=>P.querySelector(s);
+const h=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ico=n=>{try{return svg(n);}catch(e){return "";}};
+const T=v=>(v||"").trim();
+const or=(v,d)=>T(v)||d;
+const FEELS=[
+"고급 식당 광고처럼, 어두운 돌 테이블에 왼쪽 위 창가에서 따뜻한 빛이 들어오는 세로 포스터",
+"빨간 배경에 아주 큰 흰 글씨, 그릇이 글씨 위에 놓인 것처럼 보이는 세로 포스터",
+"따뜻한 한지 느낌 벽 포스터, 붓글씨 제목, 세로",
+"인스타 정사각 신메뉴 알림, 왼쪽 위에 NEW 표시",
+"잡지 표지처럼 크림색 배경에 큰 여백, 재료 이름을 작은 글씨와 선으로 가리키는 세로 포스터"];
+const FEELN=["고급 식당 광고","빨간 포스터","한지 벽 포스터","인스타 신메뉴 알림","잡지 표지"];
+const SAMPLE_TR="네 그럼 시작할게요. 오늘 날짜가… 10월 6일이죠. 다들 오셨나, 회장님, 총무님, 3학년 대표님, 그리고 이 선생님 오셨고요.\n어… 바자회 날짜는 지난번에 얘기한 대로 11월 14일 토요일로 하는 거 맞죠? 네 그날로 해요.\n장소는 강당이 안 되면 운동장인데, 강당은 이 선생님이 행정실에 물어봐 주시기로.\n아 그리고 물품 기증받는 거, 그거 안내문을 언제 보내냐면… 다음 주 월요일? 네 20일까지는 보내야 할 것 같아요. 총무님이 초안 써 주시고.\n음식은 작년처럼 떡볶이랑 어묵 하고, 가격은 작년이랑 똑같이. 3학년 대표님이 재료 견적 알아봐 주세요.\n수익금은 전부 학교 도서 구입에 쓰는 걸로, 다들 괜찮으시죠? 네.\n그… 현수막은 누가 하기로 했었죠? 아 그건 다음에 정하죠 뭐.\n다음 회의는 10월 27일 화요일 저녁 7시, 같은 장소에서. 수고하셨습니다.";
+const SAMPLE_LAST="2025년 청년 마을공방 운영 결과보고서\n(가상 예시 · 실존 기관·사업 아님)\n\n1. 사업 개요\n- 사업명: 청년 마을공방 운영\n- 사업 기간: 2025. 4. 1. ~ 2025. 11. 30.\n- 사업비: 15,000천원\n- 타깃: 지역 청년 및 주민\n\n2. 추진 내용\n- Phase 1(4~6월): 목공 원데이 클래스 12회 운영\n- Phase 2(7~11월): 마을 장터 팝업 부스 3회 참여\n- 참여자 피드백을 반영하여 클래스 시간을 저녁으로 조정함\n\n3. 성과\n- 참여 인원: 연인원 240명\n- 만족도: 4.6점(5점 만점)\n- SNS 홍보 콘텐츠 20건 게시\n\n4. 문제점 및 개선 방안\n- 주말 프로그램에 대한 니즈가 높았으나 강사 확보가 어려웠음\n- 2026년에는 주말 클래스 신설 예정";
+const SAMPLE_MEMO="- 사업 기간 4월 1일~11월 30일, 작년과 같음\n- 사업비 18,000천원\n- 목공 클래스 15회, 주말반 새로 6회\n- 마을 장터 4번 나감\n- 참여 연인원은 아직 집계 중\n- 만족도 조사 4.7점\n- 인스타 게시물은 몇 개인지 모름\n- 주말반 강사 2명 새로 구함";
+const M={
+reply:{ic:"💬",name:"손님 문의 답장",sub:"사장님",ai:2,
+ desc:"가게 정보를 한 번 적어 두면, 손님 문의에 보낼 답장 초안을 받아요.",
+ how:"복사한 뒤 ChatGPT나 Claude를 열고, 입력창을 길게 눌러(컴퓨터는 Ctrl+V, 맥은 ⌘+V) 붙여넣고 보내세요. 가게 정보는 그대로 두고 손님 문의만 바꿔서 계속 쓸 수 있어요.",
+ f:[{k:"shop",l:"가게 이름",ph:"예: 한술식당",need:1},
+    {k:"hours",l:"영업 시간·쉬는 날",ph:"예: 매일 11시~21시, 월요일 쉼"},
+    {k:"park",l:"주차",ph:"예: 가게 앞 2대, 공영주차장 걸어서 3분"},
+    {k:"book",l:"예약",ph:"예: 전화로만 받아요, 4명 이상만"},
+    {k:"faq",l:"자주 묻는 질문과 답",ph:"예: 아기 의자 있어요 / 포장 돼요",area:1},
+    {k:"ask",l:"손님 문의 (받은 메시지 그대로)",ph:"예: 토요일 저녁 6시에 6명 가도 되나요?",area:1,need:1}],
+ ex:{shop:"한술식당 (예시)",hours:"매일 11시~21시, 월요일 쉼",park:"가게 앞 2대, 근처 공영주차장 걸어서 3분",book:"전화로만 받아요, 4명 이상일 때만",faq:"아기 의자 2개 있어요 / 포장 돼요 / 반려동물은 안 돼요",ask:"토요일 저녁 6시에 6명 가려고 하는데 자리 있을까요? 차 두 대 가져가요."},
+ b:v=>"너는 우리 가게의 친절한 답장 도우미야.\n아래 [가게 정보]만 보고 [손님 문의]에 보낼 답장 초안을 써 줘.\n\n규칙\n1. 3~4줄, 존댓말, 이모지는 1개까지\n2. 가게 정보에 없는 내용은 지어내지 말고 \"확인 후 다시 연락드릴게요\"라고 쓰기\n3. 마지막 줄에는 손님이 할 다음 행동 한 가지\n\n[가게 정보]\n- 가게: "+or(v.shop,"(적지 않음)")+"\n- 영업: "+or(v.hours,"(적지 않음)")+"\n- 주차: "+or(v.park,"(적지 않음)")+"\n- 예약: "+or(v.book,"(적지 않음)")+"\n- 자주 묻는 질문: "+or(v.faq,"(적지 않음)")+"\n\n[손님 문의]\n"+or(v.ask,"(여기에 손님 문의를 붙여넣기)")},
+poster:{ic:"🍲",name:"메뉴 포스터",sub:"사장님",ai:1,
+ desc:"메뉴 사진 한 장으로 포스터를 만드는 부탁 문장이에요. 자료실 결과 5장을 만든 바로 그 문장입니다.",
+ how:"ChatGPT를 열고 먼저 + 를 눌러 메뉴 사진을 올린 뒤, 이 문장을 붙여넣고 보내세요. 그림은 ChatGPT에서 만들어요(Claude는 사진 같은 그림을 만들지 않아요). 무료 요금제도 되지만 하루 횟수 제한이 있어요.",
+ f:[{k:"food",l:"음식 이름",ph:"예: 비빔밥",need:1},
+    {k:"big",l:"큰 글씨 (짧은 문구)",ph:"예: 오늘의 한 그릇",need:1},
+    {k:"menu",l:"작은 글씨 ① 메뉴 이름",ph:"예: 산채비빔밥",need:1},
+    {k:"price",l:"작은 글씨 ② 가격",ph:"예: 9,000원",need:1},
+    {k:"feel",l:"느낌 고르기",pick:1},
+    {k:"own",l:"느낌 직접 쓰기",opt:1,ph:"예: 파란 바다 배경의 여름 포스터, 세로",hint:"여기에 쓰면 위에서 고른 느낌 대신 이 문장이 들어가요."}],
+ ex:{food:"비빔밥",big:"오늘의 한 그릇",menu:"산채비빔밥",price:"9,000원",feel:"0",own:""},
+ b:v=>"첨부한 "+or(v.food,"[음식 이름]")+" 사진으로 가게 메뉴 포스터를 만들어 줘. 음식과 그릇은 사진 그대로 진짜 사진처럼 살리고 새로 그리지 마. 큰 글씨는 \""+or(v.big,"[짧은 문구]")+"\", 작은 글씨는 \""+or(v.menu,"[메뉴 이름]")+" · "+or(v.price,"[가격]")+"\". 글자는 내가 쓴 그대로 정확하게. 느낌: "+(T(v.own)||FEELS[+v.feel]||"[느낌 하나 골라 붙이기]"),
+ extra:v=>({label:"글자가 틀리게 나오면 이어서 보낼 말",text:"글자만 큰 글씨 \""+or(v.big,"[짧은 문구]")+"\", 작은 글씨 \""+or(v.menu,"[메뉴 이름]")+" · "+or(v.price,"[가격]")+"\"로 정확하게 다시 써 줘. 나머지는 그대로 둬."})},
+meeting:{ic:"📝",name:"회의록 정리",sub:"직장인·교사·모임",ai:2,
+ desc:"회의 녹음을 받아쓴 글을 붙여넣으면 정한 것·할 일·다음 회의로 나눈 회의록 초안을 받아요.",
+ how:"녹음은 폰 기본 녹음 앱으로, 받아쓰기는 클로바노트(네이버 무료 받아쓰기 앱) 같은 앱으로 하면 됩니다. 녹음 전에는 참석자께 먼저 여쭤 보고, 개인정보나 민감한 이야기가 오간 회의는 AI에 올리지 마세요. 기관·학교는 내부 보안 규정을 먼저 확인하세요.",
+ f:[{k:"title",l:"회의 이름",opt:1,ph:"예: 학교 바자회 준비 회의"},
+    {k:"date",l:"날짜",opt:1,ph:"예: 2026년 10월 6일"},
+    {k:"who",l:"참석자",opt:1,ph:"예: 회장, 총무, 3학년 대표, 이 선생님"},
+    {k:"tr",l:"녹음 받아쓴 글",ph:"받아쓰기 앱에서 복사한 글을 그대로 붙여넣으세요.",area:2,need:1}],
+ ex:{title:"학교 바자회 준비 회의 (예시)",date:"",who:"",tr:SAMPLE_TR},
+ b:v=>{const info=[["회의 이름",v.title],["날짜",v.date],["참석자",v.who]].filter(x=>T(x[1]));
+  return "아래는 회의 녹음을 글로 바꾼 거야. 이걸 회의록으로 정리해 줘.\n\n규칙\n1. 순서: 회의 이름 / 날짜·참석자 / 정한 것 / 할 일 / 다음 회의\n2. 할 일은 \"누가 · 무엇을 · 언제까지\"로 한 줄씩\n3. "+(info.length?"녹음과 [미리 알려 주는 정보]에 없는 내용은":"녹음에 없는 내용은")+" 지어내지 말고, 애매하거나 안 정해진 건 [확인 필요]라고 쓰기\n4. 짧고 쉬운 말로\n\n"+(info.length?"[미리 알려 주는 정보]\n"+info.map(x=>"- "+x[0]+": "+T(x[1])).join("\n")+"\n\n":"")+"[녹음 받아쓰기]\n"+or(v.tr,"(여기에 받아쓴 글을 붙여넣기)");}},
+report:{ic:"📑",name:"올해 보고서 초안",sub:"공무원·기관",ai:2,
+ desc:"작년 보고서와 올해 실적 메모를 넣으면, 목차는 그대로 두고 올해 내용으로 바꾼 초안을 받아요. 메모에 없는 숫자는 지어내지 않고 [확인 필요]로 남깁니다.",
+ how:"한글 파일에서 작년 보고서 본문을 전체 선택해 복사해 넣으세요. 표는 줄이 흐트러질 수 있어 표 안 숫자는 메모에 따로 적는 게 안전해요. 기관 문서는 AI에 올려도 되는지 내부 보안 규정을 먼저 확인하고, 이름·연락처·주민번호는 지우고 넣으세요.",
+ f:[{k:"kind",l:"보고서 종류",ph:"예: 2026년 결과보고서",need:1},
+    {k:"biz",l:"사업 이름",opt:1,ph:"예: 청년 마을공방 운영"},
+    {k:"tone",l:"말투",sel:[["gae","개조식 (~함, ~하였음)"],["seo","서술식 (~하였습니다)"]]},
+    {k:"keep",l:"작년 목차·제목 그대로 두기",chk:1},
+    {k:"last",l:"작년 보고서 (본문 붙여넣기)",ph:"작년에 낸 보고서 글을 그대로 붙여넣으세요.",area:2,need:1},
+    {k:"memo",l:"올해 실적 메모",ph:"예: 사업비 18,000천원 / 교육 15회 / 만족도 4.7점\n편하게 줄마다 적으면 돼요. 모르는 건 '모름'이라고 적어도 돼요.",area:2,need:1}],
+ ex:{kind:"2026년 결과보고서",biz:"청년 마을공방 운영 (가상 예시)",tone:"gae",keep:true,last:SAMPLE_LAST,memo:SAMPLE_MEMO},
+ b:v=>{const gae=v.tone!=="seo";
+  return "아래 [작년 보고서]를 바탕으로, [올해 실적 메모]의 내용을 넣어 올해 "+or(v.kind,"[보고서 종류]")+" 초안을 써 줘.\n\n규칙\n1. "+(v.keep?"목차와 제목은 작년 보고서 그대로 두고, 그 아래 내용만 올해 것으로 바꾸기":"목차는 작년 보고서를 참고하되 올해 내용에 맞게 고쳐도 됨. 바꾼 제목은 맨 끝에 따로 알려 주기")+"\n2. 숫자(금액·인원·횟수·날짜·점수·건수)는 [올해 실적 메모]에 있는 것만 쓰기. 작년 숫자를 그대로 남기거나 짐작해서 채우지 말고, 메모에 없으면 그 자리에 [확인 필요]라고 쓰기\n3. 메모에 없는 성과·문제점·계획·이름도 지어내지 말고 그 자리에 [확인 필요]라고 쓰기. 다만 사업 대상·목적처럼 숫자가 없고 해마다 같은 설명은 작년 문장을 그대로 두고 끝에 (작년 내용)이라고 붙이기\n4. 공문서 말투로 쓰기: "+(gae?"개조식으로, 문장 끝은 \"~함\", \"~하였음\"처럼":"서술식으로, 문장 끝은 \"~하였습니다\"처럼")+"\n5. 작년 보고서와 메모에 있는 영어·외래어는 모두 공문서에 맞는 우리말로 바꾸기 (예: Phase → 단계, 피드백 → 의견, 니즈 → 수요)\n6. 한글 문서에 붙여넣을 거라 #, **, 표 기호 같은 꾸밈 기호는 쓰지 말고, 목차 번호와 - 기호만 쓰기\n7. 맨 끝에 \"[확인 필요] 목록\"을 만들어, [확인 필요]로 남긴 곳을 한 줄씩 모아 적기\n\n[보고서 종류]\n"+or(v.kind,"(적지 않음)")+"\n\n"+(T(v.biz)?"[사업 이름]\n"+T(v.biz)+"\n\n":"")+"[작년 보고서]\n"+or(v.last,"(여기에 작년 보고서를 붙여넣기)")+"\n\n[올해 실적 메모]\n"+or(v.memo,"(여기에 올해 실적을 적기)");}}
+};
+let cur="reply";const vals={};
+Object.keys(M).forEach(k=>{vals[k]={};M[k].f.forEach(f=>{vals[k][f.k]=f.chk?true:f.sel?f.sel[0][0]:f.pick?"0":"";});});
+q("#mkTabs").innerHTML=Object.keys(M).map(k=>`<button class="mk-tab" type="button" data-mk="${k}" aria-pressed="${k===cur}"><span aria-hidden="true">${M[k].ic}</span>${h(M[k].name)}<small>${h(M[k].sub)}</small></button>`).join("");
+function field(f){
+  const id="mk_"+f.k,v=vals[cur][f.k];
+  const tag=(f.need?'<span class="need">꼭</span>':"")+(f.opt?'<span class="opt">선택</span>':"");
+  const hint=f.hint?`<span class="hint">${h(f.hint)}</span>`:"";
+  if(f.pick)return `<div class="mk-f"><span class="lb">${h(f.l)}</span><div class="mk-pick" role="radiogroup" aria-label="${h(f.l)}">${FEELS.map((t,i)=>`<label><input type="radio" name="mk_feel" value="${i}" data-k="feel"${String(v)===String(i)?" checked":""}><span><b>${h(FEELN[i])}</b> — ${h(t)}</span></label>`).join("")}</div></div>`;
+  if(f.chk)return `<div class="mk-f"><label class="mk-chk"><input type="checkbox" id="${id}" data-k="${f.k}"${v?" checked":""}>${h(f.l)}</label></div>`;
+  if(f.sel)return `<div class="mk-f"><label for="${id}">${h(f.l)}</label><select id="${id}" data-k="${f.k}">${f.sel.map(o=>`<option value="${o[0]}"${v===o[0]?" selected":""}>${h(o[1])}</option>`).join("")}</select></div>`;
+  if(f.area)return `<div class="mk-f"><label for="${id}">${h(f.l)}${tag}</label><textarea id="${id}" data-k="${f.k}"${f.area===2?' class="big"':""} placeholder="${h(f.ph||"")}">${h(v)}</textarea>${hint}</div>`;
+  return `<div class="mk-f"><label for="${id}">${h(f.l)}${tag}</label><input type="text" id="${id}" data-k="${f.k}" value="${h(v)}" placeholder="${h(f.ph||"")}">${hint}</div>`;
+}
+function draw(){
+  const m=M[cur];
+  q("#mkForm").innerHTML=`<h3>${m.ic} ${h(m.name)}</h3><p class="mk-desc">${h(m.desc)}</p><div class="mk-acts"><button class="mk-btn ex" type="button" data-act="ex">예시로 채워 보기</button><button class="mk-btn" type="button" data-act="clear">모두 지우기</button></div>`+m.f.map(field).join("");
+  q("#mkLabel").textContent="완성된 지시문 · "+m.name;
+  q("#mkAi").className="mk-ai"+(m.ai===1?" one":"");
+  q("#mkAi").innerHTML=`<a href="https://chatgpt.com/" target="_blank" rel="noopener">${ico("openai")}ChatGPT 열기</a>`+(m.ai===2?`<a href="https://claude.ai/new" target="_blank" rel="noopener">${ico("claude")}Claude 열기</a>`:"");
+  q("#mkHow").textContent=m.how;
+  out();
+}
+function out(){
+  const m=M[cur],v=vals[cur];
+  q("#mkText").textContent=m.b(v);
+  const miss=m.f.filter(f=>f.need&&!T(v[f.k])).map(f=>f.l.replace(/\s*\(.*\)$/,""));
+  const L=q("#mkLeft");L.className="mk-left"+(miss.length?"":" ok");
+  L.textContent=miss.length?"아직 비어 있어요: "+miss.join(", "):"다 채웠어요. 복사해서 붙여넣으세요.";
+  const ex=m.extra?m.extra(v):null;
+  q("#mkExtra").innerHTML=ex?`<div class="prompt"><div class="pp"><span>${h(ex.label)}</span><button class="copy" type="button" id="mkCopyExtra">복사</button></div><pre>${h(ex.text)}</pre></div>`:"";
+}
+function cp(t,btn,label){
+  const done=()=>{const tt=document.getElementById("toast");if(tt){tt.classList.add("show");setTimeout(()=>tt.classList.remove("show"),1400);}if(btn){btn.textContent="복사됨";clearTimeout(btn._t);btn._t=setTimeout(()=>{btn.textContent=label;},1600);}};
+  const fb=()=>{const a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.position="fixed";a.style.top="0";a.style.opacity="0";document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(a);};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fb);}else fb();
+}
+q("#mkTabs").addEventListener("click",e=>{const b=e.target.closest("[data-mk]");if(!b)return;cur=b.dataset.mk;P.querySelectorAll(".mk-tab").forEach(x=>x.setAttribute("aria-pressed",x===b));draw();});
+q("#mkForm").addEventListener("input",e=>{const k=e.target.dataset.k;if(!k)return;vals[cur][k]=e.target.type==="checkbox"?e.target.checked:e.target.value;out();});
+q("#mkForm").addEventListener("change",e=>{const k=e.target.dataset.k;if(!k)return;vals[cur][k]=e.target.type==="checkbox"?e.target.checked:e.target.value;out();});
+q("#mkForm").addEventListener("click",e=>{const a=e.target.closest("[data-act]");if(!a)return;
+  if(a.dataset.act==="ex"){Object.assign(vals[cur],M[cur].ex);}
+  else{M[cur].f.forEach(f=>{vals[cur][f.k]=f.chk?true:f.sel?f.sel[0][0]:f.pick?"0":"";});}
+  draw();});
+q("#mkCopy").addEventListener("click",e=>cp(q("#mkText").textContent,e.currentTarget,"📋 지시문 복사하기"));
+q("#mkCopyTop").addEventListener("click",e=>cp(q("#mkText").textContent,e.currentTarget,"복사"));
+q("#mkExtra").addEventListener("click",e=>{const b=e.target.closest("#mkCopyExtra");if(b)cp(b.closest(".prompt").querySelector("pre").textContent,b,"복사");});
+draw();
+});
+</script>
 </main></section>
 
 <section class="panel" id="panel-log"><main>
@@ -525,7 +723,7 @@ $("#log").innerHTML=LOGS.map(([d,k,t,p,n])=>`<article class="logitem"><div class
 function route(){
   const h=location.hash.slice(1);
   if(h.startsWith("item-")){show("vault");openDetail(h.slice(5));return;}
-  if(["vault","start","words","log","about","free"].includes(h))show(h);
+  if(["vault","start","words","log","about","free","maker"].includes(h))show(h);
   if($("#detail").classList.contains("open"))closeDetail();
 }
 window.addEventListener("hashchange",route);
