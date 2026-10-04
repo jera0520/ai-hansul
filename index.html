@@ -62,6 +62,17 @@ main{max-width:1120px;margin:0 auto;padding:14px 32px 80px}
 .empty img{width:80px;margin:0 auto 10px}
 /* panels */
 .panel{display:none}.panel.active{display:block}
+.works{margin:30px 0 0}
+.works h4{font-size:20px;margin:0 0 6px}
+.works .wl{margin:0 0 14px;color:var(--g700);font-size:16px}
+.works .wg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px;margin:0 0 26px}
+.works .wg.w3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.works figure{margin:0}
+.about .works img{display:block;width:100%;height:auto;aspect-ratio:3/2;border-radius:6px;border:1px solid var(--border);background:#fff}
+.works figcaption{font-size:14.5px;line-height:1.6;color:var(--g700);margin:7px 0 0;word-break:keep-all}
+.works figcaption b{color:var(--ink)}
+.works .wn{font-size:14.5px;color:var(--g500);margin:0 0 24px;word-break:keep-all}
+@media(max-width:640px){.works .wg,.works .wg.w3{grid-template-columns:1fr}}
 .ph2{font-size:30px;font-weight:900;letter-spacing:-.03em;margin:18px 0 6px;line-height:1.3}
 .lead{color:var(--g700);margin:0 0 22px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -447,6 +458,22 @@ draw();
           <li>GTQ 그래픽기술자격 1급</li>
           <li>관광·문화콘텐츠·AI 공모전 10회 수상 — 안동시 「안동관광영크리에이터 육성사업」 우수상, 안동시관광협의회 「스마일 청년가이드 육성 과정」 최우수상 포함</li>
         </ul>
+        <div class="works">
+          <h4>만든 것</h4>
+          <p class="wl">개인 외주로 맡아 편집 디자인한 인쇄물입니다. 둘 다 납품 전 시안 단계의 화면이고, 공개 전 자료라 정당명·이름·얼굴·수치는 흐리게 가렸습니다.</p>
+          <div class="wg">
+            <figure><img src="img/work/uijeong_a.jpg" alt="안동시의원 의정보고서 책자형 시안 목업" width="1200" height="800" loading="lazy"><figcaption><b>의정보고서 A안, 책자형</b> · A4 8쪽 · Pretendard, 고운바탕, Noto Serif KR. 실제 의정보고서와 지방의원 보고물 사례를 조사해 짠 구성입니다.</figcaption></figure>
+            <figure><img src="img/work/uijeong_c.jpg" alt="안동시의원 의정보고서 신문형 시안 목업" width="1200" height="800" loading="lazy"><figcaption><b>의정보고서 C안, 신문형</b> · 4면 · Noto Serif KR, Noto Sans KR, Playfair Display. 제호와 머리기사, 지면별 코너로 신문의 문법을 따랐습니다.</figcaption></figure>
+          </div>
+          <div class="wg w3">
+            <figure><img src="img/work/ballet_a.jpg" alt="발레 공연 팸플릿 수채화 시안 목업" width="1200" height="800" loading="lazy"><figcaption><b>발레 팸플릿 A안, 수채화</b> · A5 · 고운바탕, Pinyon Script</figcaption></figure>
+            <figure><img src="img/work/ballet_b.jpg" alt="발레 공연 팸플릿 네이비골드 시안 목업" width="1200" height="800" loading="lazy"><figcaption><b>발레 팸플릿 B안, 네이비골드</b> · A5 · Cormorant Garamond, Noto Serif KR</figcaption></figure>
+            <figure><img src="img/work/ballet_c.jpg" alt="발레 공연 팸플릿 모던사진 시안 목업" width="1200" height="800" loading="lazy"><figcaption><b>발레 팸플릿 C안, 모던사진</b> · A5 · Bodoni Moda, Noto Serif KR</figcaption></figure>
+          </div>
+          <p class="wn">발레 팸플릿의 표지 그림과 사진, 의정보고서의 표지 붓글씨와 목업 배경 일부는 생성형 AI 이미지로 만들었고, 글자 배치와 편집은 직접 했습니다. 학원명·일시·출연진 이름은 ○○로 비워 둔 시안입니다.</p>
+          <h4>한글 결과보고서 자동화 사례</h4>
+          <p class="wl">쓰던 한글 양식 그대로 결과보고서 28쪽 초안을 만든 과정을 블로그에 적었습니다. <a href="https://blog.naver.com/antonio1214/224430043187" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline">결과보고서 28쪽을 양식 그대로 만든 과정</a> · <a href="https://blog.naver.com/antonio1214/224430857374" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline">견적서로 예정공정표 칸 채우기</a></p>
+        </div>
       </div>
     </div>
   </main></section>
