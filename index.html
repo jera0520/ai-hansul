@@ -490,6 +490,53 @@ draw();
 <script>
 const ITEMS=[
 {
+"id": "daangn-bizprofile-guide",
+"tools": [],
+"type": "무료 가이드",
+"date": "2026-10-06",
+"aud": [
+"사장님"
+],
+"sit": [
+"홍보"
+],
+"tags": [
+"당근",
+"비즈프로필",
+"동네 홍보",
+"무료 가이드",
+"PDF",
+"무료 가능"
+],
+"thumb": "img/thumb/guide02.jpg",
+"title": "당근 비즈프로필 처음 만들기, 막히는 곳 10가지",
+"line": "사업자등록증 없이 만들다 반려 1번, 다시 내서 통과한 실제 기록 8쪽 무료 PDF",
+"summary": "당근 비즈프로필을 직접 만들면서 화면에서 실제로 막힌 곳만 모았습니다. 업종 검색, 활동 지역(동 하나), 사업자등록증 대신 내는 '직접 촬영한 사진'(명함 디자인 파일을 냈다가 반려된 이유), 0원이 안 들어가는 가격 칸, 소식 제목 30자, 쿠폰 글자 수 제한, 앱으로만 되는 스토리, 그리고 광고 버튼을 피하는 법까지 담았습니다. 만들고 일주일 뒤 숫자도 그대로 적었습니다.",
+"who": "간판 없는 1인 사업자·프리랜서, 당근에 가게를 처음 올리는 동네 사장님",
+"gain": "검수 반려 없이 한 번에 통과하고, 광고비 없이 첫 소식·쿠폰까지 올리는 순서",
+"free": true,
+"steps": [
+"앱에서 나의 당근 → 나의 비즈니스 → 비즈프로필 관리 → 비즈프로필 만들기로 들어갑니다.",
+"업종은 검색어를 바꿔 가며 가장 맞는 것을 고르고, 활동 지역은 손님이 많은 동 하나를 고릅니다.",
+"사업자등록증이 없으면 상호가 보이는 실물(명함 등)을 폰으로 직접 찍어 냅니다. 디자인 파일·캡처는 반려됩니다.",
+"통과하면 '공지·소개'에 동네 이름이 들어간 소개글, 대표 사진, 가격(정가 또는 '별도 문의'+설명)을 채웁니다.",
+"소식은 제목 30자 안에 동네 이름을 넣어 쓰고, 무료 쿠폰을 붙입니다. 광고하기 버튼은 원할 때만 누릅니다."
+],
+"prompts": [],
+"faq": [
+[
+"사업자등록증이 없어도 되나요?",
+"네. 대신 비즈프로필 이름과 같은 상호가 보이는 실물을 직접 찍은 사진(명함 등)을 '활동 증빙 자료'로 냅니다."
+],
+[
+"돈이 드나요?",
+"만들기, 소식, 쿠폰, 단골 관리, 스토리는 무료입니다. '광고하기', '더 많이 알리기', 미션 보상 '3천원 받기'는 광고로 이어집니다."
+]
+],
+"note": "2026년 10월 기준 당근 화면입니다. 화면과 규칙은 바뀔 수 있습니다. 숫자는 AI한술 비즈프로필의 실제 통계입니다.",
+"src": "<a href=\"files/daangn_bizprofile_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(8쪽)</a> · 공식 안내: <a href=\"https://bizschool.daangn.com/bizprofile\" target=\"_blank\" rel=\"noopener\">당근 비즈스쿨 비즈프로필 소개</a>"
+},
+{
 "id": "report-guide",
 "tools": [
 "openai",
@@ -741,7 +788,7 @@ const IC={"openai": {"d": "M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.04
 const NAMES={openai:"ChatGPT",claude:"Claude",googlegemini:"Gemini",instagram:"인스타그램",threads:"스레드"};
 const svg=(n,c)=>`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${c||IC[n].c}" d="${IC[n].d}"/></svg>`;
 const AUDS=["사장님","직장인","공무원","교사","어르신"].filter(a=>ITEMS.some(i=>i.aud.includes(a)));
-const SITS=["보고서","포스터","리뷰","문의"];
+const SITS=["보고서","포스터","리뷰","문의","홍보"];
 const TOOLS=["openai","claude","googlegemini"];
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -783,11 +830,11 @@ function openDetail(id){
   const i=ITEMS.find(x=>x.id===id); if(!i)return;
   $("#sheet").innerHTML=`<button class="close" type="button" aria-label="닫기" data-close>×</button>
   <div class="badges">${badges(i)}</div>
-  <h2 id="dTitle">${esc(i.title)}</h2><div class="tools">${(i.tools||[]).map(t=>`<span>${svg(t)}${NAMES[t]}</span>`).join("")}<span style="border:0;background:none;color:var(--g500);font-weight:700">${(i.tools||[]).length>1?"어느 것이든 됩니다":"로 만들었습니다"}</span></div><p class="sum">${esc(i.summary)}</p>
+  <h2 id="dTitle">${esc(i.title)}</h2><div class="tools">${(i.tools||[]).map(t=>`<span>${svg(t)}${NAMES[t]}</span>`).join("")}${(i.tools||[]).length?`<span style="border:0;background:none;color:var(--g500);font-weight:700">${(i.tools||[]).length>1?"어느 것이든 됩니다":"로 만들었습니다"}</span>`:""}</div><p class="sum">${esc(i.summary)}</p>
   ${i.gallery?`<h4>실제로 나온 결과</h4><div class="gal">${i.gallery.map(([s,c])=>`<figure><img src="${s}" alt="${esc(c)}" loading="lazy"><figcaption>${esc(c)}</figcaption></figure>`).join("")}</div>`:""}
   <div class="who"><div><b>누구에게</b>${esc(i.who)}</div><div><b>무엇이 좋아지나</b>${esc(i.gain)}</div></div>
   <h4>따라 하기</h4><ol>${i.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
-  <h4>부탁 문장 전문</h4>${i.prompts.map((p,k)=>`<div class="prompt"><div class="pp"><span>${esc(p.label)}</span><button class="copy" type="button" data-copy="${k}">복사</button></div><pre>${esc(p.text)}</pre></div>`).join("")}
+  ${i.prompts.length?`<h4>부탁 문장 전문</h4>`:""}${i.prompts.map((p,k)=>`<div class="prompt"><div class="pp"><span>${esc(p.label)}</span><button class="copy" type="button" data-copy="${k}">복사</button></div><pre>${esc(p.text)}</pre></div>`).join("")}
   ${i.faq.length?`<h4>자주 묻는 질문</h4><div class="faq">${i.faq.map(([q,a])=>`<div><b>${esc(q)}</b>${esc(a)}</div>`).join("")}</div>`:""}
   ${i.note?`<div class="note">${esc(i.note)}</div>`:""}${i.src?`<p class="src">${i.src}</p>`:""}`;
   $("#sheet").dataset.id=id;$("#detail").classList.add("open");document.body.style.overflow="hidden";$("#sheet .close").focus();
