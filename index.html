@@ -170,43 +170,6 @@ footer{border-top:1px solid var(--border);background:var(--tint)}
 .card .ht{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
 .card .ht span{font-size:12.5px;font-weight:800;color:var(--g700);background:var(--tint);padding:3px 8px;border-radius:6px}
 .iglink a{display:inline-block;font-weight:800;font-size:16px;text-decoration:underline;margin:4px 0 2px}
-/* 2026-10-08 세련된 디자인 층 (홍익인간 자료실 문법: 흰 바탕·큰 굵은 제목·강조색 하나·얇은 선) */
-:root{--bg:#fff;--tint:#F4F5F7;--border:#E9EAEE;--ink:#111214;--g700:#40444C;--g500:#6E737D;--g400:#A2A7B0;--acc:#2457F5;--brass:#2457F5;--brass-deep:#2457F5;--brass-100:#EEF3FF;--brass-soft:#EEF3FF}
-body{background:#fff}
-.hd{background:rgba(255,255,255,.94);border-bottom:1px solid var(--border)}
-.hd-in{height:64px;padding:10px 32px}
-.logo b{font-size:19px;font-weight:800}
-.logo span{display:none}
-.sb{border:1px solid var(--border);background:var(--tint);border-radius:12px;height:42px}
-.sb:focus-within{border-color:var(--acc);background:#fff}
-.sb input{font-size:16px}
-.tabs{border-top:1px solid var(--border)}
-.tabs-in{max-width:1220px;margin:0 auto;padding:0 32px;display:flex;gap:26px;overflow-x:auto;scrollbar-width:none}
-.tabs-in::-webkit-scrollbar{display:none}
-.tabs button{border:0;background:none;padding:13px 0 11px;font-size:15.5px;font-weight:600;color:var(--g500);border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
-.tabs button.on{color:var(--ink);font-weight:800;border-bottom-color:var(--acc)}
-.menu{display:none}
-.intro{border-bottom:1px solid var(--border);background:#fff}
-.intro-in{max-width:1120px;margin:0 auto;padding:34px 32px 26px}
-.eyebrow{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--acc)}
-.intro h1{margin:0;font-size:clamp(30px,4.2vw,46px);line-height:1.18;font-weight:900;letter-spacing:-.045em}
-.intro .sub{margin:12px 0 0;max-width:620px;font-size:16px;line-height:1.65;color:var(--g500)}
-.intro .cta{margin:16px 0 0;display:flex;gap:22px;flex-wrap:wrap}
-.intro .cta a{font-size:15px;font-weight:800;color:var(--acc);text-decoration:none}
-.intro .cta a:hover{text-decoration:underline}
-.bar{padding-top:18px}
-.chip{border:1px solid var(--border);background:#fff;color:var(--g700);font-weight:700}
-.chip[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
-.grid{gap:22px}
-.card{border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 2px rgba(17,18,20,.04)}
-.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(17,18,20,.22)}
-.card .th{border-bottom:0;background:#f1f1f1}
-.card .cb{padding:16px 18px 20px}
-.card h3{font-weight:800;letter-spacing:-.03em}
-.card .ht span{background:var(--tint);color:var(--g700);font-weight:700}
-.bd.new{background:#FF3B30}
-.prompt,#panel-maker .mk-tab,#panel-maker .mk-ai a{border:1px solid var(--border)}
-@media (max-width:820px){.hd-in{padding:10px 16px;height:auto}.hicons{margin-left:auto}.tabs-in{padding:0 16px;gap:20px}.intro-in{padding:24px 16px 20px}}
 </style>
 </head>
 <body>
@@ -218,20 +181,16 @@ body{background:#fff}
     <a class="ib" href="https://www.instagram.com/ai.hansul/" target="_blank" rel="noopener" aria-label="인스타그램 @ai.hansul"><i data-ic="instagram"></i></a>
     <a class="ib" href="https://www.threads.com/@ai.hansul" target="_blank" rel="noopener" aria-label="스레드 @ai.hansul"><i data-ic="threads"></i></a>
     <div class="menu"><button class="ib" id="menuBtn" type="button" aria-label="메뉴 열기" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <div class="dd" id="dd" hidden><button data-tab="vault">자료실</button><button data-tab="maker">지시문 만들기</button><button data-tab="free">무료 양식 세팅</button><button data-tab="start">처음이라면</button><button data-tab="words">말사전</button><button data-tab="log">빌드로그</button><button data-tab="about">소개</button></div></div>
+      <div class="dd" id="dd" hidden><button data-tab="vault">📚 자료실</button><button data-tab="maker">✍️ 지시문 만들기</button><button data-tab="free">🎁 무료 양식 세팅</button><button data-tab="start">🌱 처음이라면</button><button data-tab="words">📖 말사전</button><button data-tab="log">🛠 빌드로그</button><button data-tab="about">🙋 소개</button></div></div>
   </div>
-</div>
-<nav class="tabs" aria-label="메뉴"><div class="tabs-in"><button data-tab="vault" class="on">자료실</button><button data-tab="maker">지시문 만들기</button><button data-tab="free">무료 양식 세팅</button><button data-tab="start">처음이라면</button><button data-tab="words">말사전</button><button data-tab="log">빌드로그</button><button data-tab="about">소개</button></div></nav>
-</header>
+</div></header>
 
 <section class="panel active" id="panel-vault">
-  <div class="intro"><div class="intro-in">
-    <p class="eyebrow">AI HANSUL · 자료실</p>
-    <h1>복사 한 번이면,<br>AI가 일을 덜어 줍니다</h1>
-    <p class="sub">사장님·직장인이 바로 따라 하는 AI 자료. 붙여넣는 지시문까지 전부 공개합니다. 인스타에서 보고 오셨다면 같은 주제 카드를 누르세요.</p>
-    <p class="cta"><a href="#free" data-tab="free">한글 보고서 양식 무료 세팅 신청 →</a><a href="#maker" data-tab="maker">빈칸만 채우는 지시문 만들기 →</a></p>
-  </div></div>
   <div class="bar">
+    <p class="val">사장님·직장인이 바로 따라 하는 AI 자료. 복사해서 쓰는 문장까지 <b>전부 공개</b>해요.</p>
+    <p class="val" style="margin-top:6px">📱 인스타에서 보고 오셨나요? <b>같은 주제 카드</b>를 누르면 지시문이 바로 나와요.</p>
+    <p class="val" style="margin-top:6px"><a href="#free" data-tab="free" style="font-weight:800;text-decoration:underline">🎁 한글 보고서 양식 무료 세팅, 처음 두 분 신청 받아요 →</a></p>
+    <p class="val" style="margin-top:6px"><a href="#maker" data-tab="maker" style="font-weight:800;text-decoration:underline">✍️ 빈칸만 채우면 AI 지시문 완성 — 문의 답장·포스터·회의록·보고서 →</a></p>
     <div class="chips" id="chips" role="group" aria-label="자료 거르기"></div>
     <p class="count" id="count" aria-live="polite"></p>
   </div>
@@ -326,7 +285,7 @@ body{background:#fff}
 </style>
   <h2 class="ph2">빈칸만 채우면, AI에게 보낼 지시문 완성</h2>
   <p class="lead">자료실에서 실제로 돌려 보고 검증한 지시문에 우리 가게·내 일 내용만 넣어 드려요. 다 채우면 <b>복사</b> 눌러 ChatGPT나 Claude에 붙여넣기만 하면 됩니다.</p>
-  <div class="mk-safe" role="note"><span><b>적은 내용은 이 화면 밖으로 나가지 않아요.</b> 어디에도 보내거나 저장하지 않고, 화면을 닫으면 사라집니다. 지시문을 AI 채팅창에 붙여넣을 때 처음으로 그 AI 회사에 전달되니, 손님 이름·전화번호 같은 개인정보는 빼고 적어 주세요.</span></div>
+  <div class="mk-safe" role="note"><span aria-hidden="true">🔒</span><span><b>적은 내용은 이 화면 밖으로 나가지 않아요.</b> 어디에도 보내거나 저장하지 않고, 화면을 닫으면 사라집니다. 지시문을 AI 채팅창에 붙여넣을 때 처음으로 그 AI 회사에 전달되니, 손님 이름·전화번호 같은 개인정보는 빼고 적어 주세요.</span></div>
   <ol class="mk-flow" aria-label="쓰는 순서"><li>① 무엇을 할지 고르기</li><li>② 빈칸 채우기</li><li>③ 복사</li><li>④ ChatGPT·Claude에 붙여넣기</li><li>⑤ 답 확인하고 고치기</li></ol>
   <div class="mk-tabs" id="mkTabs" role="group" aria-label="만들 지시문 고르기"></div>
   <div class="mk-wrap">
@@ -334,7 +293,7 @@ body{background:#fff}
     <div class="mk-out">
       <div class="prompt"><div class="pp"><span id="mkLabel">완성된 지시문</span><button class="copy" type="button" id="mkCopyTop">복사</button></div><pre id="mkText"></pre></div>
       <p class="mk-left" id="mkLeft" aria-live="polite"></p>
-      <button class="mk-copy" type="button" id="mkCopy">지시문 복사하기</button>
+      <button class="mk-copy" type="button" id="mkCopy">📋 지시문 복사하기</button>
       <div class="mk-ai" id="mkAi"></div>
       <p class="mk-how" id="mkHow"></p>
       <div class="mk-extra" id="mkExtra"></div>
@@ -449,7 +408,7 @@ q("#mkForm").addEventListener("click",e=>{const a=e.target.closest("[data-act]")
   if(a.dataset.act==="ex"){Object.assign(vals[cur],M[cur].ex);}
   else{M[cur].f.forEach(f=>{vals[cur][f.k]=f.chk?true:f.sel?f.sel[0][0]:f.pick?"0":"";});}
   draw();});
-q("#mkCopy").addEventListener("click",e=>cp(q("#mkText").textContent,e.currentTarget,"지시문 복사하기"));
+q("#mkCopy").addEventListener("click",e=>cp(q("#mkText").textContent,e.currentTarget,"📋 지시문 복사하기"));
 q("#mkCopyTop").addEventListener("click",e=>cp(q("#mkText").textContent,e.currentTarget,"복사"));
 q("#mkExtra").addEventListener("click",e=>{const b=e.target.closest("#mkCopyExtra");if(b)cp(b.closest(".prompt").querySelector("pre").textContent,b,"복사");});
 draw();
@@ -465,7 +424,7 @@ draw();
 
 <section class="panel" id="panel-free"><main>
   <h2 class="ph2">한글 보고서 양식, 무료로 세팅해 드려요</h2>
-  <p class="lead" style="margin-bottom:10px"><a href="files/report_ai_guide_2026.pdf" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline">혼자 해 보실 분은 무료 가이드부터 — 결과보고서 AI로 쓰기 6단계(PDF 11쪽)</a></p>
+  <p class="lead" style="margin-bottom:10px"><a href="files/report_ai_guide_2026.pdf" target="_blank" rel="noopener" style="font-weight:800;text-decoration:underline">📄 혼자 해 보실 분은 무료 가이드부터 — 결과보고서 AI로 쓰기 6단계(PDF 11쪽)</a></p>
   <p class="lead">해마다 같은 양식으로 내는 결과보고서·정산 서류가 있다면, 쓰시던 한글 파일 하나로 다음부터 <b>내용만 넣으면 되는 틀</b>을 만들어 드립니다. <b>처음 두 분은 무료</b>입니다.</p>
   <div class="two">
     <div class="box"><span class="price">보내 주실 것</span><h3>파일 하나와 내용</h3>
@@ -589,7 +548,7 @@ const ITEMS=[
 ]
 ],
 "note": "가입·연동 부분은 직접 해 본 기록이고, 사용료 규칙은 2026-09-24에 확인한 네이버 공식 안내입니다. 제도는 바뀔 수 있으니 시작 전에 공식 도움말을 다시 확인하세요.",
-"src": "<a href=\"files/naver_shoppingconnect_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">무료 가이드 PDF 내려받기(6쪽)</a> · 공식: <a href=\"https://brandconnect.naver.com/about/partner\" target=\"_blank\" rel=\"noopener\">브랜드커넥트 파트너 안내</a>"
+"src": "<a href=\"files/naver_shoppingconnect_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(6쪽)</a> · 공식: <a href=\"https://brandconnect.naver.com/about/partner\" target=\"_blank\" rel=\"noopener\">브랜드커넥트 파트너 안내</a>"
 },
 {
 "id": "daangn-bizprofile-guide",
@@ -636,7 +595,7 @@ const ITEMS=[
 ]
 ],
 "note": "2026년 10월 기준 당근 화면입니다. 화면과 규칙은 바뀔 수 있습니다. 숫자는 AI한술 비즈프로필의 실제 통계입니다.",
-"src": "<a href=\"files/daangn_bizprofile_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">무료 가이드 PDF 내려받기(8쪽)</a> · 공식 안내: <a href=\"https://bizschool.daangn.com/bizprofile\" target=\"_blank\" rel=\"noopener\">당근 비즈스쿨 비즈프로필 소개</a>"
+"src": "<a href=\"files/daangn_bizprofile_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(8쪽)</a> · 공식 안내: <a href=\"https://bizschool.daangn.com/bizprofile\" target=\"_blank\" rel=\"noopener\">당근 비즈스쿨 비즈프로필 소개</a>"
 },
 {
 "id": "report-guide",
@@ -697,7 +656,7 @@ const ITEMS=[
 ]
 ],
 "note": "예시 보고서와 숫자는 설명을 위해 지어낸 것입니다(실존 기관·사업 아님). 숫자·문구·사진은 마지막에 반드시 사람이 확인하세요.",
-"src": "<a href=\"files/report_ai_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">무료 가이드 PDF 내려받기(11쪽)</a> · 한컴 기능 출처: <a href=\"https://help.hancom.com/hoffice/multi/ko_kr/hwp/edit/paste(html).htm\" target=\"_blank\" rel=\"noopener\">HTML 문서 붙이기</a>, <a href=\"https://help.hancom.com/hoffice/multi/ko_kr/hwp/view/toolbar/shortcut(table).htm\" target=\"_blank\" rel=\"noopener\">단축키 일람</a>",
+"src": "<a href=\"files/report_ai_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(11쪽)</a> · 한컴 기능 출처: <a href=\"https://help.hancom.com/hoffice/multi/ko_kr/hwp/edit/paste(html).htm\" target=\"_blank\" rel=\"noopener\">HTML 문서 붙이기</a>, <a href=\"https://help.hancom.com/hoffice/multi/ko_kr/hwp/view/toolbar/shortcut(table).htm\" target=\"_blank\" rel=\"noopener\">단축키 일람</a>",
 "ig": "https://www.instagram.com/ai.hansul/reel/DeDO_PypkOq/"
 },
 {
@@ -1173,7 +1132,6 @@ function fallback(t,done){const a=document.createElement("textarea");a.value=t;a
 function show(tab){
   $("#dd").hidden=true;$("#menuBtn").setAttribute("aria-expanded","false");
   $$(".panel").forEach(p=>p.classList.toggle("active",p.id==="panel-"+tab));
-  $$(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===tab));
 }
 $("#words").innerHTML=WORDS.map(([w,s,d])=>`<div class="word"><h3>${esc(w)}${s?`<small>${esc(s)}</small>`:""}</h3><p>${esc(d)}</p></div>`).join("");
 $("#log").innerHTML=LOGS.map(([d,k,t,p,n])=>`<article class="logitem"><div class="when">${d}${k?`<small>${k}</small>`:""}</div><div><h3>${esc(t)}</h3><p>${esc(p)}</p><div class="nums">${n.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div></article>`).join("");
