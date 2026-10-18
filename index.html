@@ -526,15 +526,15 @@ const ITEMS=[
 "ChatGPT Plus",
 "Codex",
 "AI 초기 세팅",
-"한글 스킬",
-"무료 가능"
+"LLM 위키",
+"온톨로지"
 ],
 "thumb": "img/card/ai-first-setup-guide.jpg",
-"title": "AI 처음 결제했으면, 세팅도 AI한테 시키세요 — 복붙 프롬프트로 한글·카톡·영상·AI 위키까지",
+"title": "AI 처음 결제했으면, 세팅도 AI한테 시키세요 — 복붙 프롬프트로 한글·카톡·영상·AI 위키(온톨로지)까지",
 "line": "직접 할 일은 ChatGPT 앱과 Codex 터미널 설치뿐, 나머지는 프롬프트를 붙여 넣으면 AI가 깔고 시험까지",
-"summary": "유료 AI를 결제하고도 채팅창에 질문만 하면 반만 쓰는 겁니다. 제가 실제로 쓰는 세팅(한글 문서 스킬, 카카오톡을 AI가 직접 조작해 보내기, 영상 편집 스킬 세트, 옵시디언 AI 위키)을 하나하나 손으로 깔지 말고, Codex(ChatGPT Plus로 쓰는 작업용 AI)에 프롬프트를 붙여 넣어 AI가 알아서 내려받고 설치하고 시험까지 하게 만드는 순서입니다. 직접 하는 건 ChatGPT 컴퓨터 앱과 Codex 터미널 설치 두 가지뿐입니다. 형이 처음 AI를 결제한다길래 세팅해 주려고 만든 것을 누구나 쓰게 다듬었습니다(윈도우 기준).",
+"summary": "유료 AI를 결제하고도 채팅창에 질문만 하면 반만 쓰는 겁니다. 제가 실제로 쓰는 세팅(한글 문서 스킬, 카카오톡을 AI가 직접 조작해 보내기, 영상 편집 스킬 세트, 옵시디언 AI 위키와 온톨로지)을 하나하나 손으로 깔지 말고, Codex(ChatGPT Plus로 쓰는 작업용 AI)에 프롬프트를 붙여 넣어 AI가 알아서 내려받고 설치하고 시험까지 하게 만드는 순서입니다. 직접 하는 건 ChatGPT 컴퓨터 앱과 Codex 터미널 설치 두 가지뿐입니다. 형이 처음 AI를 결제한다길래 세팅해 주려고 만든 것을 누구나 쓰게 다듬었습니다(윈도우 기준).",
 "who": "AI를 처음 유료로 결제한 직장인, 설치·설정이 어려워서 채팅만 쓰고 있는 분",
-"gain": "설치 2가지 + 복붙 프롬프트 8개(시작 규칙, 한글 스킬, 카톡 자동 보내기, 영상 스킬, AI 위키 4단계), PDF 6쪽",
+"gain": "설치 2가지 + 복붙 프롬프트 9개(시작 규칙, 한글 스킬, 카톡 자동 보내기, 영상 스킬, AI 위키·온톨로지 5단계), 그림 넣은 PDF 7쪽",
 "free": true,
 "steps": [
 "ChatGPT 컴퓨터 앱을 설치하고 로그인합니다(chatgpt.com/download 또는 Microsoft Store).",
@@ -542,7 +542,7 @@ const ITEMS=[
 "새 PowerShell 창에서 mkdir ai-work; cd ai-work; codex 를 입력하고 「Sign in with ChatGPT」로 로그인합니다.",
 "아래 ① 시작 프롬프트를 붙여 넣어 Codex의 작업 규칙을 저장합니다.",
 "②~④ 프롬프트를 하나씩 붙여 넣으면 한글 스킬, 카카오톡 조작, 영상 편집 스킬이 설치되고 시험까지 됩니다. 명령 실행 허락을 물으면 내용을 보고 허락합니다.",
-"⑤ AI 위키는 6-1(설치) → 6-2(규칙) 순서로 한 번, 6-3(자료 넣기)은 자료를 넣을 때마다, 6-4(점검)는 일주일에 한 번 붙여 넣습니다."
+"⑤ AI 위키는 6-1(설치) → 6-2(규칙) → 6-3(온톨로지: 종류 8개·관계 속성·실체 페이지·Bases 표) 순서로 한 번, 6-4(자료 넣기)는 자료를 넣을 때마다, 6-5(점검)는 일주일에 한 번 붙여 넣습니다."
 ],
 "prompts": [
 {
@@ -570,12 +570,16 @@ const ITEMS=[
 "text": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f 의 「LLM Wiki」 글을 읽고,\nC:\\second-brain 에 그 방식대로 위키를 운영하는 규칙을 AGENTS.md로 써 줘.\n- 위키는 한국어로 쓴다.\n- index.md(전체 목록)와 log.md(작업 기록)는 wiki 폴더 안에 둔다.\n- 새 페이지를 만들기 전에 index.md와 검색으로 같은 주제가 있는지 먼저 찾고, 있으면 그 페이지를 늘린다.\n- 모든 페이지 맨 위에 날짜와 출처(raw 파일 이름)를 적는다.\n다 쓰면 규칙을 다섯 줄로 요약해 줘."
 },
 {
-"label": "⑤ AI 위키 6-3 · 자료 넣기(넣을 때마다)",
-"text": "raw 폴더에 새로 넣은 자료를 정리해 줘.\n핵심을 먼저 세 줄로 말해 주고, wiki에 페이지를 만들거나 늘린 뒤 index.md와 log.md를 갱신해.\n건드린 파일 목록을 보여 줘."
+"label": "⑤ AI 위키 6-3 · 온톨로지 적용(한 번)",
+"text": "내 위키에 온톨로지(정해진 종류와 관계)를 적용해 줘.\n1. C:\\second-brain\\_meta\\schema.md 를 만들어 아래를 정해.\n   - 종류(type) 8개: person(사람) · org(회사·기관) · project(프로젝트) · topic(주제·개념)\n     · tool(도구·앱) · decision(결정) · source(자료 요약) · idea(아이디어)\n   - 속성 8개: type · status · related · project · org · updated · sources · tags\n   - 관계는 속성에 [[페이지]] 링크로 적고, 본문 링크 옆에도 관계 말을 붙인다(예: [[홍길동]]이 담당).\n   - 실체 페이지 틀(사람·회사·프로젝트, 30줄 이내): 무엇 / 원본이 있는 곳 / 관계 / 배운 점 / 관련 노트\n2. AGENTS.md에 「모든 페이지는 schema.md의 type 중 하나만 쓰고, 목록 밖 type은 만들지 않는다」를 넣어.\n3. 지금 있는 노트에 type과 관계 속성을 채우고, 여러 노트에 자주 나오는 사람·회사·프로젝트는\n   wiki\\entities 에 실체 페이지로 만들어.\n4. 옵시디언 Bases로 「사람」「프로젝트」 표 보기를 하나씩 만들어 줘."
 },
 {
-"label": "⑤ AI 위키 6-4 · 점검(일주일에 한 번)",
-"text": "위키 전체를 점검해 줘. 서로 어긋나는 내용, 비슷한 페이지, 아무 데서도 링크되지 않은 페이지를 찾아\nwiki/lint-report.md에 적고, 고칠 것을 제안해."
+"label": "⑤ AI 위키 6-4 · 자료 넣기(넣을 때마다)",
+"text": "raw 폴더에 새로 넣은 자료를 정리해 줘.\n핵심을 먼저 세 줄로 말해 주고, wiki에 페이지를 만들거나 늘려.\n페이지마다 schema.md의 type과 관계 속성(related·project·org)을 채우고,\n새로 나온 사람·회사·프로젝트가 있으면 실체 페이지를 만들거나 기존 실체 페이지에 이어 적어.\n끝나면 index.md와 log.md를 갱신하고 건드린 파일 목록을 보여 줘."
+},
+{
+"label": "⑤ AI 위키 6-5 · 점검(일주일에 한 번)",
+"text": "위키 전체를 점검해 줘.\n- 서로 어긋나는 내용, 비슷한 페이지, 아무 데서도 링크되지 않은 페이지\n- schema.md 목록 밖 type, type이나 관계 속성이 빠진 페이지\n- 여러 번 나오는데 실체 페이지가 없는 이름\n찾은 것을 wiki/lint-report.md에 적고, 고칠 것을 제안해. 내가 승인하면 고쳐."
 }
 ],
 "faq": [
@@ -598,10 +602,14 @@ const ITEMS=[
 [
 "카카오톡 자동 보내기는 안전한가요?",
 "kakaotalk-mcp는 작은 개인 공개 프로젝트라, 프롬프트에서 설치 전에 코드를 먼저 읽고 확인하게 했습니다. 다른 사람에게 보내기 전에는 받는 방과 내용을 먼저 보여 주고 허락을 받게 했습니다."
+],
+[
+"온톨로지가 뭔가요?",
+"노트마다 「사람·회사·프로젝트·결정」 같은 종류와 「누가 무엇과 이어져 있나」 같은 관계를 정해 두는 약속입니다. 그러면 AI가 같은 내용을 두 번 만들지 않고, 「이 사람이 맡은 프로젝트 다 보여 줘」처럼 관계를 따라 찾습니다."
 ]
 ],
 "note": "2026-10-18 기준으로 Codex README·OpenAI 스킬 문서·각 도구 저장소를 확인해 정리했습니다. 한글 스킬은 제가 만들어 쓰는 「한글 문서 도우미」 공개판입니다. Remotion은 직원 3명이 넘는 회사의 업무용이면 유료 라이선스가 필요합니다. 메뉴·주소는 업데이트로 바뀔 수 있습니다.",
-"src": "<a href=\"files/ai_first_setup_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(6쪽)</a> · 출처: <a href=\"https://github.com/openai/codex\" target=\"_blank\" rel=\"noopener\">Codex</a>, <a href=\"https://jera0520.github.io/hwp-document-helper/\" target=\"_blank\" rel=\"noopener\">한글 문서 도우미</a>, <a href=\"https://github.com/kronenz/kakaotalk-mcp\" target=\"_blank\" rel=\"noopener\">kakaotalk-mcp</a>, <a href=\"https://github.com/heygen-com/hyperframes\" target=\"_blank\" rel=\"noopener\">HyperFrames</a>, <a href=\"https://github.com/remotion-dev/skills\" target=\"_blank\" rel=\"noopener\">Remotion 스킬</a>, <a href=\"https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f\" target=\"_blank\" rel=\"noopener\">Karpathy LLM Wiki</a>"
+"src": "<a href=\"files/ai_first_setup_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(7쪽)</a> · 출처: <a href=\"https://github.com/openai/codex\" target=\"_blank\" rel=\"noopener\">Codex</a>, <a href=\"https://jera0520.github.io/hwp-document-helper/\" target=\"_blank\" rel=\"noopener\">한글 문서 도우미</a>, <a href=\"https://github.com/kronenz/kakaotalk-mcp\" target=\"_blank\" rel=\"noopener\">kakaotalk-mcp</a>, <a href=\"https://github.com/heygen-com/hyperframes\" target=\"_blank\" rel=\"noopener\">HyperFrames</a>, <a href=\"https://github.com/remotion-dev/skills\" target=\"_blank\" rel=\"noopener\">Remotion 스킬</a>, <a href=\"https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f\" target=\"_blank\" rel=\"noopener\">Karpathy LLM Wiki</a>"
 },
 {
 "id": "hongbo-chukchuk",
