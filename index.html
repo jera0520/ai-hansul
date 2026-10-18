@@ -509,6 +509,73 @@ draw();
 <script>
 const ITEMS=[
 {
+"id": "ai-first-setup-guide",
+"tools": [
+"openai"
+],
+"type": "무료 가이드",
+"date": "2026-10-18",
+"aud": [
+"직장인"
+],
+"sit": [
+"업무",
+"시작하기"
+],
+"tags": [
+"ChatGPT Plus",
+"AI 초기 세팅",
+"Codex",
+"옵시디언",
+"무료 가능"
+],
+"thumb": "img/card/ai-first-setup-guide.jpg",
+"title": "처음 AI 결제했으면 이 순서로, 회사원 초기 세팅 9가지",
+"line": "학습 끄기·맞춤 설정부터 Codex 앱, 한글·카톡·메일·영상, 옵시디언 AI 위키까지 — ChatGPT Plus 기준",
+"summary": "유료 결제를 하고도 채팅창에 질문만 하면 무료와 다를 게 없습니다. 처음 10분에 해 둘 설정(2단계 인증, 학습 끄기, 맞춤 설정), 깔아 둘 프로그램(컴퓨터 앱, Codex 앱), 한글·카카오톡·메일·영상 편집을 지금 가장 쉽게 하는 방법, 옵시디언으로 나만의 AI 위키를 만드는 순서를 ChatGPT Plus(월 20달러) 기준으로 정리했습니다. 회사원이라면 먼저 지켜야 할 선(회사 자료는 개인 AI에 넣지 않기)과 회사 메일 프로그램 알림 켜는 법도 같이 담았습니다. 형이 처음 AI를 결제한다길래 세팅해 주려고 정리한 것을 누구나 쓰게 다듬었습니다.",
+"who": "AI를 처음 유료로 결제했거나 결제하려는 직장인, 특히 회사 보안이 신경 쓰이는 대기업 사무직",
+"gain": "결제 직후 해 둘 설정 5가지, 깔아 둘 프로그램, 하고 싶은 일별 방법, 옵시디언 AI 위키 시작 순서(PDF 5쪽)",
+"free": true,
+"steps": [
+"설정 › 보안 › 다단계 인증을 켭니다. 계정을 털리면 대화 기록이 전부 넘어갑니다.",
+"설정 › 데이터 제어 › 「모델 개선」을 끕니다. 개인 요금제는 이 설정 하나로 Codex 작업까지 함께 꺼집니다.",
+"설정 › 맞춤 설정에 나를 한 번만 적어 둡니다(아래 지시문). 회사 이름·사내 정보는 적지 않습니다.",
+"메모리 관리에서 틀린 기억을 가끔 지우고, 왼쪽 「프로젝트」로 주제별 방을 나눕니다.",
+"ChatGPT 컴퓨터 앱과 휴대폰 앱, 그리고 Codex 앱을 설치합니다. Codex는 내 컴퓨터 폴더의 파일을 직접 만들고 고치는 앱이라 한글 스킬·AI 위키를 여기서 씁니다.",
+"하고 싶은 일별 방법(한글·카톡·메일·영상)과 옵시디언 AI 위키 순서는 PDF 3~4쪽을 따라 합니다."
+],
+"prompts": [
+{
+"label": "맞춤 설정에 붙여 넣기",
+"text": "나는 사무직 직장인이고 AI는 처음이야.\n답은 한국어로, 결론 먼저, 쉬운 말로 짧게.\n모르는 건 지어내지 말고 모른다고 말해 줘.\n내 요청이 애매하면 먼저 질문 하나만 해 줘."
+},
+{
+"label": "Codex에서 AI 위키 규칙 만들기",
+"text": "(Karpathy의 LLM Wiki 글을 붙여 넣은 뒤)\n이 방식으로 내 볼트 규칙을 AGENTS.md로 써 줘.\nindex.md(목록)와 log.md(기록)는 wiki 폴더 안에 둬.\n새 페이지를 만들기 전에 index.md에서 같은 주제가 있는지 먼저 찾아."
+}
+],
+"faq": [
+[
+"3만 원짜리가 Pro인가요?",
+"아닙니다. 월 20달러(원화로 3만 원 안팎)는 Plus입니다. Pro는 월 100달러·200달러짜리 다른 상품입니다. 원화 청구액은 환율과 부가세에 따라 달라서 결제 화면에서 확인하세요."
+],
+[
+"회사 PC에도 깔아도 되나요?",
+"회사마다 다릅니다. 개인 AI 앱·확장 설치와 개인 계정 로그인은 사내 보안 규정을 먼저 확인하세요. 회사 일은 회사가 허락한 AI로 하고, 개인 AI에는 회사 문서·메일·회의 내용을 넣지 않는 것이 기본입니다."
+],
+[
+"Claude를 결제했다면요?",
+"순서는 같습니다. 학습 끄기·맞춤 지침·프로젝트를 먼저 하고, Codex 대신 Claude 데스크톱 앱의 Code(Claude Code)를 씁니다. Claude Pro로 Claude Code를 쓸 수 있습니다."
+],
+[
+"카톡으로 남에게 자동 발송도 되나요?",
+"개인이 쓸 수 있는 공식 경로는 카카오 PlayMCP의 「나와의 채팅방」「톡캘린더」까지입니다. 남에게 보내는 자동 발송이나 PC 카톡 매크로는 권하지 않습니다."
+]
+],
+"note": "2026-10-18 기준으로 OpenAI 도움말·Codex 출시 안내·카카오 보도자료·Microsoft 지원 문서를 확인해 정리했습니다. ChatGPT 메뉴 이름은 앱 업데이트로 바뀔 수 있고, Plus 요금제에서 개발자 모드·Gmail 연결이 되는 범위는 자료마다 달라 메뉴가 보일 때만 안내했습니다.",
+"src": "<a href=\"files/ai_first_setup_guide_2026.pdf\" target=\"_blank\" rel=\"noopener\" style=\"font-size:18px;font-weight:800\">📄 무료 가이드 PDF 내려받기(5쪽)</a> · 출처: <a href=\"https://help.openai.com/en/articles/7730893-data-controls-faq\" target=\"_blank\" rel=\"noopener\">OpenAI 데이터 제어</a>, <a href=\"https://openai.com/index/introducing-the-codex-app/\" target=\"_blank\" rel=\"noopener\">Codex 앱</a>, <a href=\"https://github.com/DoHyun468/claw-hwp\" target=\"_blank\" rel=\"noopener\">claw-hwp</a>, <a href=\"https://www.kakaocorp.com/page/detail/12012\" target=\"_blank\" rel=\"noopener\">카카오 PlayMCP</a>, <a href=\"https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f\" target=\"_blank\" rel=\"noopener\">Karpathy LLM Wiki</a>"
+},
+{
 "id": "hongbo-chukchuk",
 "tools": [
 "openai"
